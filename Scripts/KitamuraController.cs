@@ -17,13 +17,11 @@ public class KitamuraController : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D> ();
     }
 
+
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
     void FixedUpdate()
     {
-        if(Input.GetButtonDown("Fire1")&& airborne && safetyoff){
-            RaycastHit2D
-
-        }
+        
        if(Input.GetButtonDown("Jump") && !airborne){
             rb2d.AddForce(Vector2.up * jspeed *Input.GetAxis("Jump"), ForceMode2D.Impulse);
             airborne= true;
@@ -51,5 +49,8 @@ public class KitamuraController : MonoBehaviour {
         Debug.Log("Ouch!");
         airborne= false;
     
+ }
+ public bool GetAirborne(){
+     return airborne;
  }
 }
